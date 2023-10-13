@@ -45,7 +45,7 @@ Please read my CV.
 
 ## Future planning
 
-I'm interested in multimodal/LLM/Autonomous artificial intelligence, since they are crucial for the Strong AI. Of course I will prioritize following the mentor's decision. After graduating with a master's degree, I want to continue pursuing a doctoral degree.
+I'm interested in Unsupervised Learning/Multimodal/LLM/Autonomous artificial intelligence, since they are crucial for the Strong AI. Of course I will prioritize following the mentor's decision. After graduating with a master's degree, I want to continue pursuing a doctoral degree.
 
 ## Concluding Remarks
 
