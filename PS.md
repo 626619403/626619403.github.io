@@ -28,6 +28,7 @@ All of these are not simple issues. They are caused by multiple underlying issue
 
 This makes AI&robots become a excellent options. You need about 100k dollar and 20 years to bring up a person, but you only need 2000$ and less than one week to train a GPT4ALL/LLaMA, which can complete almost all kinds of works that can be done on computer. You need 1000$ per month to hire a cook, and one cook robot's price is 500$. AI is an perfect tool that can complete extremely complex tasks while maintaining a certain degree of controllability. It does not have its own needs, and with proper training, it can serve the people and never engage in corruption. It can increase the productivity dramatically and distribute material wealth fairly, then can we truly liberate all those in distress.
 
+AS you now, I'm a poor guy. Training AI needs a lot of money to buy GPU, which is unaffordable for me. If you need a research assistant, please also consider me.
 </details>
 
 ## Why Study Abroad?
@@ -35,9 +36,6 @@ This makes AI&robots become a excellent options. You need about 100k dollar and 
 1. For researching, enough communication with top personnel in the industry is indispensable. So I want to go out to see the world and meeting more people come from different area.
 2. The employment situation in recent years in China has been quite severe. It's also make it easier for me to have funding sources to ensure that my dad won't be kicked out of the hospital for not having enough money.
 
-## Why MBZUAI?
-
-AS you now, I'm a poor guy. Training AI needs a lot of money to buy GPU, which is unaffordable for me. I also considered KAUST, but they almost only hire PhD and I don't have enough research experience. So I want to try asking if you are willing to accept me. If you need a research assistant, please also consider me.
 
 ## Relevant experience & Merits & Disadvantages
 
