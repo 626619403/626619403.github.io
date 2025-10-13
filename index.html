@@ -1,135 +1,524 @@
-<!doctype html>
-<html lang="zh" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>InferiorMouse</title>
-  <meta name="Description" content="Home Page of iissnan">
-  <meta name="color-scheme" content="dark light">
-  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-  <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xinhai Wang - Academic Homepage</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <style>
+        * {
+            cursor: url('cursor.cur')}
+        
+        a, button, input[type="submit"], input[type="button"], input[type="reset"] {
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAXCAYAAAAp2kZCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAEgAAAABAAAASAAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADqADAAQAAAABAAAAFwAAAACJgvqSAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgoZXuEHAAAA7klEQVQ4EWP8//8/AyWAiYFCQHsNjCCN////Z2RmZmZhYGD4//v37z9AB/8Hav7PzMz8H5imKCDo6uqMOBUwYtMMVPgfSIP1MGJXQEgDC7ImkGZcCvDZgKoOXQGKZpg4sjqCGkCaQJpAmgjZgFczsgaQjSBNRGmGacDQBLIBxEalGZdmUNyCYQNIM1GaSfIFSZpJ9gVZmknyBTU0k+QLqmgm2hfMzMyMGzdu/EMNwC8DjIwgBxHUgMsXDAxY+A5kPUgzQV+AohjkC5BmvL6AqYH5AqQZry9gmvH6AqYZpy9AmnH6AmYDTl+ANOP0BcwyigEAAAD//2EaBQDWWP+MYwjjRQAAAABJRU5ErkJggg=='), pointer !important;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'MS Sans Serif', sans-serif;
+            background: url('./background.jpg') center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        @keyframes pageLoad {
+            from {
+                clip-path: inset(0 0 100% 0);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+        
+        .page-loading {
+            animation: pageLoad 1.5s ease-out;
+        }
+        
+        .browser-window {
+            width: 95%;
+            max-width: 1200px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+        }
+        
+        .address-bar {
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            background: #c0c0c0;
+            border-bottom: 1px solid #808080;
+        }
+        
+        .address-bar label {
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        .address-bar input {
+            flex: 1;
+            padding: 2px 4px;
+        }
+        
+        .toolbar {
+            display: flex;
+            gap: 2px;
+            padding: 4px;
+            background: #c0c0c0;
+            border-bottom: 1px solid #808080;
+        }
+        
+        .content-area {
+            display: flex;
+            height: 600px;
+            background: #fff;
+        }
+        
+        .sidebar {
+            width: 200px;
+            background: #c0c0c0;
+            border-right: 2px solid #808080;
+            overflow-y: auto;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar li {
+            padding: 12px 16px;
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAXCAYAAAAp2kZCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAEgAAAABAAAASAAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADqADAAQAAAABAAAAFwAAAACJgvqSAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgoZXuEHAAAA7klEQVQ4EWP8//8/AyWAiYFCQHsNjCCN////Z2RmZmZhYGD4//v37z9AB/8Hav7PzMz8H5imKCDo6uqMOBUwYtMMVPgfSIP1MGJXQEgDC7ImkGZcCvDZgKoOXQGKZpg4sjqCGkCaQJpAmgjZgFczsgaQjSBNRGmGacDQBLIBxEalGZdmUNyCYQNIM1GaSfIFSZpJ9gVZmknyBTU0k+QLqmgm2hfMzMyMGzdu/EMNwC8DjIwgBxHUgMsXDAxY+A5kPUgzQV+AohjkC5BmvL6AqYH5AqQZry9gmvH6AqYZpy9AmnH6AmYDTl+ANOP0BcwyigEAAAD//2EaBQDWWP+MYwjjRQAAAABJRU5ErkJggg=='), pointer;
+            border-bottom: 1px solid #808080;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar li:hover {
+            background: #000080;
+            color: white;
+        }
+        
+        .sidebar li.active {
+            background: #000080;
+            color: white;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+            position: relative;
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAXCAYAAAAp2kZCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAEgAAAABAAAASAAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADqADAAQAAAABAAAAFwAAAACJgvqSAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXNyeGdeGAAAA7klEQVQ4EWP8//8/AyWAiYFCQHsNjCCN////Z2RmZmZhYGD4//v37z9AB/8Hav7PzMz8H5imKCDo6uqMOBUwYtMMVPgfSIP1MGJXQEgDC7ImkGZcCvDZgKoOXQGKZpg4sjqCGkCaQJpAmgjZgFczsgaQjSBNRGmGacDQBLIBxEalGZdmUNyCYQNIM1GaSfIFSZpJ9gVZmknyBTU0k+QLqmgm2hfMzMyMGzdu/EMNwC8DjIwgBxHUgMsXDAxY+A5kPUgzQV+AohjkC5BmvL6AqYH5AqQZry9gmvH6AqYZpy9AmnH6AmYDTl+ANOP0BcwyigEAAAD//2EaBQDWWP+MYwjjRQAAAABJRU5ErkJggg=='), pointer;
+            overflow: hidden;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .profile-photo img.photo-alt {
+            opacity: 0;
+        }
+        
+        .profile-photo:hover img.photo-main {
+            opacity: 0;
+        }
+        
+        .profile-photo:hover img.photo-alt {
+            opacity: 1;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .profile-info p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #000080;
+        }
+        
+        .item-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border: 2px solid;
+            border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+        }
+        
+        .item-box h3 {
+            margin: 0 0 8px 0;
+            color: #000080;
+        }
+        
+        .item-box .period {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .publication-item .authors {
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .publication-item .venue {
+            color: #000080;
+            font-weight: bold;
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+        }
+        
+        fieldset {
+            margin: 20px 0;
+        }
 
+        /* Rule to increase font size */
+        .main-content p, .main-content li, .item-box {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
 <body>
-  <div class="vi">
-    <h1 class="animate-slide-in-down">Xinhai Wang's Homepage</h1>
-    <div class="quote">
-      <span class="quote-line quote-line-start animate-slide-in-left"></span>
-      <span class="quote-icon quote-icon-start animate-slide-in-down">
-        <i class="icon icon-quotes-left"></i>
-      </span>
-      <p class="quote-content animate-slide-in-down">I'm a Xi'an Jiaotong University senior student. I <b>don't have any specific research interests</b> at the moment. However, I might have a preference for areas such as <b>multi-task learning, robotics, LLM, multimodal, and causal reasoning</b>.</p>
-      <p class="quote-content animate-slide-in-down">I am seeking a fully funded <b>MPhil/PhD</b> program for the <b>Fall 2024 or Spring 2025</b> intake. Due to my limited research experience, I am also actively searching for professors who are willing to accept me as a <b>research assistant</b> (with the longest term of appointment potentially extending until the start of the Spring 2025 intake). I have no classes during my entire senior year, but if you require me to work in your lab on-site, you may need to provide me with a minimum wage to ensure my accommodation and living conditions due to financial constraints.</p>
-      <p class="quote-content animate-slide-in-down">My personal experiences, certificates, papers, and transcripts can be found in my CV, Personal Statement, and GitHub repository.</p>
-      <p class="quote-content animate-slide-in-down">My email is <b><a href="mailto:2201412079@stu.xjtu.edu.cn">2201412079@stu.xjtu.edu.cn</a></b>.</p>
-      <span class="quote-icon quote-icon-end animate-slide-in-up">
-        <i class="icon icon-quotes-right"></i>
-      </span>
-      <span class="quote-line quote-line-end animate-slide-in-right"></span>
-    </div>
-    <div class="links">
-      <a href="/CV.pdf" class="animate-slide-in-down">CV</a>
-      <a href="/PS.md" class="animate-slide-in-down">PS</a>
-    </div>
-    <div class="links">
-      <a href="https://github.com/626619403" class="animate-slide-in-down">GitHub</a>
-      <a href="https://blog.csdn.net/qq_50951510" class="animate-slide-in-down">CSDN</a>
-      <a href="https://www.zhihu.com/people/ni-gang-cai-90" class="animate-slide-in-down">ZhiHu</a>
-    </div>
-    <div class="links">
-      <p class="quote-content animate-slide-in-down" >if you want to see my certifications,please click <a href="https://github.com/626619403/Certificates">here</a></p></div>
+    <div class="browser-window window">
+        <div class="title-bar">
+            <div class="title-bar-text">Xinhai Wang's Homepage - Internet Explorer</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        
+        <div class="toolbar">
+            <button>Back</button>
+            <button>Forward</button>
+            <button>Stop</button>
+            <button onclick="location.reload()">Refresh</button>
+            <button onclick="showPage('home')">Home</button>
+        </div>
+        
+        <div class="address-bar">
+            <label>Address:</label>
+            <input type="text" value="https://wxh626619403.github.io/" readonly>
+            <button>Go</button>
+        </div>
+        
+        <div class="content-area">
+            <div class="sidebar">
+                <ul>
+                    <li class="active" onclick="showPage('home')">
+                        <span class="icon">🏠</span>
+                        <span>Home</span>
+                    </li>
+                    <li onclick="showPage('publications')">
+                        <span class="icon">📚</span>
+                        <span>Publications</span>
+                    </li>
+                    <li onclick="showPage('experience')">
+                        <span class="icon">📋</span>
+                        <span>Experience</span>
+                    </li>
+                    <li onclick="showPage('projects')">
+                        <span class="icon">🛠️</span>
+                        <span>Projects & Skills</span>
+                    </li>
+                     <li onclick="showPage('awards')">
+                        <span class="icon">🏆</span>
+                        <span>Awards</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div id="home" class="page active">
+                    <div class="profile-section">
+                        <div class="profile-photo sunken-panel">
+                            <img class="photo-main" src="./photo.jpg" alt="Profile Photo">
+                            <img class="photo-alt" src="./alt.jpg" alt="Hover Photo">
+                        </div>
+                        <div class="profile-info">
+                            <h1>Xinhai Wang</h1>
+                            <p><strong>Position:</strong> Master's Student in Computer Science</p>
+                            <p><strong>Institution:</strong> King Abdullah University of Science and Technology (KAUST)</p>
+                            <p><strong>Email:</strong> <a href="mailto:xinhai.wang@kaust.edu.sa">xinhai.wang@kaust.edu.sa</a></p>
+                            <p><strong>GitHub:</strong> <a href="https://github.com/626619403" target="_blank">https://github.com/626619403</a></p>
+                        </div>
+                    </div>
+                    
+                    <fieldset>
+                        <legend>About Me</legend>
+                        <p>
+                           I am a Master's student in Computer Science at King Abdullah University of Science and Technology (KAUST). My research focuses on Large Language Models (LLMs), particularly on accelerating LLM inference and optimizing system architectures for efficiency. I am passionate about mechanistic interpretability, system optimization, and building efficient AI systems.
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Research Interests</legend>
+                        <ul>
+                            <li>LLM Inference Acceleration</li>
+                            <li>System Architectures and Efficiency Optimization for LLM</li>
+                        </ul>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Education</legend>
+                        <div class="item-box">
+                            <h3>Master of Computer Science</h3>
+                            <div class="period">Sep. 2024 - Present</div>
+                            <p>King Abdullah University of Science and Technology (KAUST), Thuwal, Saudi Arabia</p>
+                        </div>
+                        <div class="item-box">
+                            <h3>Bachelor of Computer Science</h3>
+                            <div class="period">Sep. 2020 - Jul. 2024</div>
+                            <p>Xi'an Jiaotong University, Xi'an, China</p>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div id="publications" class="page">
+                    <h2>Publications</h2>
+                    
+                    <div class="section-title">2025</div>
+                    <div class="publication-item item-box">
+                        <h3>Towards Stable and Explainable Attention Mechanisms</h3>
+                        <div class="authors">Lijie Hu, <strong>Xinhai Wang(co-first author)</strong>, Yixin Liu, Ninghao Liu, Mengdi Huai, Lichao Sun, and Di Wang</div>
+                        <div class="venue">IEEE TKDE, 2025</div>
+                        <p>The paper focused on enhancing the robustness and faithfulness of the attention mechanism by applying projected gradient descent (PGD) and aligning the model’s outputs more closely with the original attention-distribution.</p>
+                        <button onclick="window.open('https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10872805', '_blank')">PDF</button>
+                        
+                    </div>
+                    <div class="publication-item item-box">
+                        <h3>Understanding How Value Neurons Shape the Generation of Specified Values in LLMs</h3>
+                        <div class="authors">Yi Su, Jiayi Zhang, Shu Yang, <strong>Xinhai Wang</strong>, Lijie Hu and Di Wang</div>
+                        <div class="venue">EMNLP, 2025</div>
+                        <p>This paper proposes ValueLocate framework for mechanistic analysis of values in LLMs and builds ValueInsight dataset and developed efficient neuron identification method using activation differences.</p>
+                        <button onclick="window.open('https://openreview.net/pdf?id=DDFMui3UC2', '_blank')">PDF</button>
+                        
+                    </div>
+
+                    <div class="section-title">Under Submission</div>
+                     <div class="publication-item item-box">
+                        <h3>PAHQ: Accelerating Automated Circuit Discovery through Mixed-Precision Inference Optimization</h3>
+                        <div class="authors"><strong>Xinhai Wang</strong>, Shu Yang, Liangyu Wang, Lin Zhang, Difei Xu, Lijie Hu and Di Wang</div>
+                        <div class="venue">Under Submission</div>
+                        <p>This paper introduces PAHQ(Per Attention Head Quantization), a training-free, plug-and-play approach that optimizes each patching operation to accelerate automated circuit discovery in large language models.</p>
+                        <button onclick="window.open('./papers/PAHQ.pdf', '_blank')">PDF</button>
+                        
+                    </div>
+                    <div class="publication-item item-box">
+                        <h3>Accelerating Suffix Jailbreak attacks with Prefix-Shared KV-cache</h3>
+                        <div class="authors"><strong>Xinhai Wang</strong>, Shaopeng Fu, Shu Yang, Liangyu Wang and Di Wang</div>
+                        <div class="venue">Under Submission</div>
+                        <p>This paper proposes PSKV (Prefix-Shared KV cache), an efficient optimization for suffix jailbreak attacks on LLMs, reducing memory cost by ~30% and computation time by ~40%.</p>
+                        <button onclick="window.open('./papers/PSKV.pdf', '_blank')">PDF</button>
+                        
+                    </div>
+                    <div class="publication-item item-box">
+                        <h3>Efficient and Stable Grouped RL Training for Large Language Models</h3>
+                        <div class="authors">Liangyu Wang, Huanyi Xie, <strong>Xinhai Wang</strong>, Tianjin Huang, Mengdi Li, and Di Wang</div>
+                        <div class="venue">Under Submission</div>
+                        <p>This paper introduces Infinite Sampling, a framework that decouples group size from GPU memory through micro sampling groups, continuous interleaved generation, and a length-aware scheduler.</p>
+                        <button onclick="window.open('https://arxiv.org/pdf/2506.22950', '_blank')">PDF</button>
+                        
+                    </div>
+                    <div class="publication-item item-box">
+                        <h3>Integrated Quantum Dot Lasers for Parallelized Photonic Edge Computing</h3>
+                        <div class="authors">Zhican Zhou<sup>#</sup>, William He<sup>#</sup>, Xuhao Wu, Xiangpeng Ou, <strong>Xinhai Wang</strong>, Hanguang Liao, Ying Shi, Yuxuan Xie, Di Wang, Atif Shamim, Duanni Huang, Haisheng Rong, John E. Bowers, Yating Wan<sup>*</sup></div>
+                        <div class="venue">Under Submission</div>
+                        <p>This paper demonstrates a photonic computing unit with integrated quantum dot mode-locked lasers on silicon, achieving 1.7× higher scalability and significant improvements in computational density (>40%) and energy efficiency (~30%). This cross-layer framework bridges device innovation with system architecture and training algorithms for practical edge AI deployment.</p>
+                        <button onclick="window.open('./papers/QuantumDot.pdf', '_blank')">PDF</button>
+                        
+                    </div>
+                </div>
+
+                <div id="experience" class="page">
+                    <h2>Experience</h2>
+                    <div class="item-box">
+                        <h3>MS Student</h3>
+                        <div class="period">Jun. 2024 - Now</div>
+                         <ul>
+                            <li>Completed paper <em>PAHQ: Accelerating Automated Circuit Discovery through Mixed-Precision Inference Optimization</em>, 
+                                <em>Accelerating Suffix Jailbreak attacks with Prefix-Shared KV-cache</em>,<em>Efficient and Stable Grouped RL Training for Large Language Models</em> and 
+                                 <em>Understanding How Value Neurons Shape the Generation of Specified Values in LLMs</em>.</li>
+                        </ul>
+                    </div>
+                    <div class="item-box">
+                        <h3>Research Assistant, Prof. Yating Wan's Group (KAUST)</h3>
+                        <div class="period">Feb. 2024 - Jun. 2024</div>
+                         <ul>
+                            <li>Served as a RA in the group of Yating Wan, an assistant professor of KAUST.</li>
+                            <li>Completed Project <em>Integrated Quantum Dot Lasers for Parallelized Photonic Edge Computing</em>.</li>
+                        </ul>
+                    </div>
+                     <div class="item-box">
+                        <h3>Research Assistant, Prof. Di Wang's Group (KAUST)</h3>
+                        <div class="period">Jul. 2023 - Jan. 2024</div>
+                        <ul>
+                            <li>Served as a RA in KAUST assistant professor Di Wang's group.</li>
+                             <li>Completed paper <em>Towards Stable and Explainable Attention Mechanisms</em>.</li>
+                        </ul>
+                    </div>
+                     <div class="item-box">
+                        <h3>RoboMaster Teammate</h3>
+                        <div class="period">Sep. 2020 - May. 2021</div>
+                        <ul>
+                            <li>Acquired foundational knowledge in machine learning and computer vision.</li>
+                            <li>Developed expertise in Python programming for computer vision applications.</li>
+                        </ul>
+                    </div>
+                     <div class="item-box">
+                        <h3>NOIP Team Member</h3>
+                        <div class="period">Oct. 2017 - Oct. 2018</div>
+                         <ul>
+                            <li>Developed proficiency in C++ programming and algorithmic problem-solving.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="projects" class="page">
+                    <h2>Projects & Skills</h2>
+                    
+                    <div class="section-title">Projects</div>
+                     <div class="item-box">
+                        <h3>Optoelectronic Hardware Acceleration for Variational Autoencoder</h3>
+                        <p>The project utilizes a micro-ring resonator (MRR)–based architecture to achieve high-speed, ultra-low-power matrix-vector multiplication. The system integrates data preprocessing, MRR crossbar-based multiplication, optical–electrical conversion, and electrical control. This work spans optical chip design, electrical control platform development, and optimization of hardware-friendly AI models.</p>
+                    </div>
+
+                    <div class="section-title">Coursework Highlights</div>
+                     <div class="item-box">
+                        <h3>CS283: MultiEdit Image-Text Editing Framework</h3>
+                        <p>Implemented MultiEdit, a two-stage image–text editing framework that decomposes complex instructions into iterative fine-grained edits. We integrated classifier-free guidance, null-text inversion, and adaptive mask generation to achieve seamless global transformations alongside precise local refinements.</p>
+                    </div>
+                    <div class="item-box">
+                        <h3>Stanford CS143: Compiler Construction</h3>
+                        <p>Successfully completed the lexical analysis, syntactic analysis, and a portion of the semantic analysis components of the Cool language compiler.</p>
+                    </div>
+                    <div class="item-box">
+                        <h3>CPU Building</h3>
+                        <p>Independently designed a CPU using Logisim software capable of executing all instructions from the MIPS-Lite instruction set. This CPU included the ALU, DM, ID, IM, GRM units, and the associated interconnections.</p>
+                    </div>
+
+                    <div class="section-title">Skills</div>
+                    <fieldset>
+                        <legend>Programming</legend>
+                        <ul>
+                            <li>Python (PyTorch, Transformers), C++</li>
+                        </ul>
+                    </fieldset>
+                    <fieldset>
+                        <legend>LLM & Deep Learning</legend>
+                         <ul>
+                            <li>Inference optimization, mechanistic interpretability, quantization, attention mechanisms, image-text editing, optical neural networks</li>
+                        </ul>
+                    </fieldset>
+                     <fieldset>
+                        <legend>System Optimization</legend>
+                        <ul>
+                            <li>KV-cache management, mixed-precision inference, memory/computation optimization</li>
+                        </ul>
+                    </fieldset>
+                </div>
+
+                <div id="awards" class="page">
+                    <h2>Awards</h2>
+                    <div class="item-box">
+                        <h3>Second prize of the Northwest Division in the RoboMaster University Series</h3>
+                        <div class="period">May 2021</div>
+                    </div>
+                    <div class="item-box">
+                        <h3>National Olympiad in Informatics in Provinces (NOIP), second prize</h3>
+                        <div class="period">Nov. 2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <p class="status-bar-field">Ready</p>
+            <p class="status-bar-field">Last Updated: October 2025</p>
+        </div>
     </div>
     
-    <div class="location">
-      <span class="location-icon animate-slide-in-up">
-        <i class="icon icon-map-pin"></i>
-      </span>
-      <span class="location-text animate-slide-in-down">Xi'An - China</span>
-    </div>
-    <div class="relocating">
-      Navigating to: <span class="relocate-location"></span>...
-    </div>
-  </div>
-
-  <script src="assets/vendors/jquery-3.3.1.min.js"></script>
-  <script>
-    $(function () {
-      var SLIDE_IN_DOWN = { opacity: 1, top: 0 };
-      var SLIDE_IN_UP = { opacity: 1, bottom: 0 };
-      var SLIDE_IN_LEFT = { left: 0 };
-      var SLIDE_IN_RIGHT = { right: 0 };
-
-      registerCheatCode();
-      executeAnimations();
-
-      function executeAnimations() {
-        $.when()
-          .then(animateTitle)
-          .then(animateQuote)
-          .then(animateLinks)
-          .then(animateLocation);
-      }
-
-      function animateTitle() {
-        return animate('h1', SLIDE_IN_DOWN);
-      }
-
-      function animateQuote() {
-        return $.when(
-          animate('.quote-line-start', SLIDE_IN_LEFT),
-          animate('.quote-line-end',SLIDE_IN_RIGHT),
-          animate('.quote-icon-start', SLIDE_IN_DOWN),
-          animate('.quote-icon-end', SLIDE_IN_UP)
-        )
-          .then(function () {
-            return animate('.quote-content', SLIDE_IN_DOWN);
-          })
-          .then(function () {
-            return animate('.quote-author', SLIDE_IN_DOWN);
-          });
-      }
-
-      function animateLinks() {
-        var DELAY_STEP = 200;
-        var elements = $('.links a');
-        var concurrent = $.makeArray(elements)
-          .map(function (element, index) {
-            return animate(element, SLIDE_IN_DOWN, index * DELAY_STEP);
-          });
-
-        return $.when.apply($, concurrent);
-      }
-
-      function animateLocation() {
-        return $.when(
-          animate('.location-icon', SLIDE_IN_UP),
-          animate('.location-text', SLIDE_IN_DOWN)
-        );
-      }
-
-      function animate(selector, properties, delay, options) {
-        delay = delay || 0;
-        return $(selector).delay(delay)
-          .animate(properties, options)
-          .promise();
-      }
-
-      function registerCheatCode() {
-        $(document.body).on('keydown', function (event) {
-          var KEY_B = 66;
-
-          if (event.which === KEY_B) {
-            $('.relocate-location').text('Bookmark Page');
-            $('.relocating').css('opacity', 1);
-
-            window.setTimeout(function () {
-              window.location.href = '/bookmarks.html';
-            }, 1000);
-          }
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+                page.classList.remove('page-loading');
+            });
+            
+            const sidebarItems = document.querySelectorAll('.sidebar li');
+            sidebarItems.forEach(item => item.classList.remove('active'));
+            
+            const targetPage = document.getElementById(pageId);
+            targetPage.classList.add('active');
+            
+            setTimeout(() => {
+                targetPage.classList.add('page-loading');
+            }, 10);
+            
+            // Find the correct sidebar item to activate
+            const activeSidebarItem = document.querySelector(`.sidebar li[onclick="showPage('${pageId}')"]`);
+            if (activeSidebarItem) {
+                activeSidebarItem.classList.add('active');
+            }
+        }
+        // Set the initial active tab on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showPage('home');
         });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
